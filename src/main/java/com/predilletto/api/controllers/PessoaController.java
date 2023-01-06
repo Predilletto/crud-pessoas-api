@@ -21,7 +21,7 @@ import com.predilletto.api.services.PessoaServices;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/pessoas")
+@RequestMapping("/api/pessoas")
 public class PessoaController {
 
 	@Autowired

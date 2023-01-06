@@ -16,7 +16,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(Exception.class) 
 	public ResponseEntity<Object> test (Exception e) {
 		Map<String, String> m =new HashMap<>();
-		m.put("Error",e.getMessage());
+		m.put("Exception", e.getClass().getName());
+		m.put("Message",e.getMessage());
 		return new ResponseEntity<Object>(m, HttpStatus.BAD_REQUEST); 
 	}
 	
