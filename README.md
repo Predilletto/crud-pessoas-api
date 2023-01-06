@@ -14,7 +14,7 @@
         - dataNasc: Date (Não Nulo/ formato de data dd-MM-yyyy)
     - Response Body:
         - Entidade Pessoa criada no Banco. 
-    -Response Code:
+    - Response Code:
         - 201 (Created) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Editar uma pessoa
@@ -27,7 +27,7 @@
         - dataNasc: Date (Não Nulo/ Formato de data dd-MM-yyyy)
     - Response Body:
         - Entidade Pessoa editada no Banco. 
-    -Response Code:
+    - Response Code:
         - 200 (OK) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Consultar uma pessoa
@@ -39,7 +39,7 @@
         -Parametro Id passado na URL {pessoaId}
     - Response Body:
         - Entidade Pessoa recuperada do Banco. 
-    -Response Code:
+    - Response Code:
         - 200 (OK) para Sucesso.
         - 404 (NOT FOUND) para Falha.
 -Listar pessoas
@@ -52,7 +52,7 @@
     - Response Body:
         - Lista das entidades de Pessoas cadastradas com sucesso no banco até então.
         - Lista Vazia caso o banco não tenha sido populado.
-    -Response Code:
+    - Response Code:
         - 200 (OK) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Criar endereço para pessoa
@@ -68,8 +68,9 @@
         - cidade: String (Não Nulo) 
     - Response Body:
         - Entidade Endereco cadastrada no Banco. /**por convenção da API todo primeiro endereço cadastrado para cada Pessoa, se torna seu endereço Principal(Podendo ser alterado posteriormente)
-        
-    -Response Code:
+  
+  
+    - Response Code:
         - 201 (CREATED) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Listar endereços da pessoa
@@ -83,9 +84,11 @@
         - Lista de Enderecos  cadastrada em determinada Entidade Pessoa no Banco. 
         - Lista Vazia caso o banco não tenha sido populado com endereços para essa pessoa. 
     - Response Code:
-        - 200 (OK) para Sucesso.
-        - 404 (NOT FOUND) para Falha caso Pessoa não exista no banco.
-        - 400 (BAD REQUEST) para falha padrão.
+         - 200 (OK) para Sucesso.
+         - 404 (NOT FOUND) para Falha caso Pessoa não exista no banco.
+         - 400 (BAD REQUEST) para falha padrão.
+         
+         
 - Poder informar qual endereço é o principal da pessoa
   - ***Endpoint: localhost:/port/api/pessoas/{pessoaId}/enderecos/{enderecoId}***
     
@@ -97,9 +100,9 @@
     - Response Body:
         - Entidade Endereco que foi substituido como endereço principal de Pessoa. 
     - Response Code:
-        - 200 (OK) para Sucesso.
-        - 404 (NOT FOUND) para Falha caso Pessoa ou Endereco não exista no banco.
-        - 400 (BAD REQUEST) para falha padrão.
+         - 200 (OK) para Sucesso.
+         - 404 (NOT FOUND) para Falha caso Pessoa ou Endereco não exista no banco.
+         - 400 (BAD REQUEST) para falha padrão.
 
 ### Uma Pessoa deve ter os seguintes campos:
 - Nome
