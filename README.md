@@ -179,7 +179,7 @@ Desafio java utilizando Spring Boot e h2Database para criar uma aplicação que 
 ```
  
 ---
-## Listar Pessoas
+## Listar Endereços de uma Pessoa
 **Request**:
  
 - **URL**: localhost:port/api/pessoas/{pessoaId}/enderecos
