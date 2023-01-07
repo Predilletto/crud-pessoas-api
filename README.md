@@ -5,7 +5,7 @@
 
 #### Usando Spring boot, crie uma API simples para gerenciar Pessoas. Esta API deve permitir:
 - Criar uma pessoa:
-  - ***Endpoint: localhost:/port/api/pessoas*** 
+  - ***Endpoint: localhost:port/api/pessoas*** 
     
     - Metodo: POST
     
@@ -18,7 +18,7 @@
         - 201 (Created) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Editar uma pessoa
-  - ***Endpoint: localhost:/port/api/pessoas/{pessoaId}***
+  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}***
     
     - Metodo: PUT
     
@@ -31,7 +31,7 @@
         - 200 (OK) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Consultar uma pessoa
-  - ***Endpoint: localhost:/port/api/pessoas/{pessoaId}***
+  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}***
     
     - Metodo: GET
     
@@ -43,7 +43,7 @@
         - 200 (OK) para Sucesso.
         - 404 (NOT FOUND) para Falha.
 -Listar pessoas
-  - ***Endpoint: localhost:/port/api/pessoas/***
+  - ***Endpoint: localhost:port/api/pessoas/***
     
     - Metodo: GET
     
@@ -56,7 +56,7 @@
         - 200 (OK) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Criar endereço para pessoa
-  - ***Endpoint: localhost:/port/api/pessoas/{pessoaId}/enderecos***
+  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}/enderecos***
     
     - Metodo: POST
     
@@ -74,7 +74,7 @@
         - 201 (CREATED) para Sucesso.
         - 400 (Bad Request) para Falha.
 - Listar endereços da pessoa
-  - ***Endpoint: localhost:/port/api/pessoas/{pessoaId}/enderecos***
+  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}/enderecos***
     
     - Metodo: GET
     
@@ -90,7 +90,7 @@
          
          
 - Poder informar qual endereço é o principal da pessoa
-  - ***Endpoint: localhost:/port/api/pessoas/{pessoaId}/enderecos/{enderecoId}***
+  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}/enderecos/{enderecoId}***
     
     - Metodo: PATCH
     
