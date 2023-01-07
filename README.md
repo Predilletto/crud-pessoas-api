@@ -81,89 +81,166 @@
 ```
  
 ---
+## Buscar Pessoa
+**Request**:
+ 
+- **URL**: localhost:port/api/pessoas/{pessoaId} 
+- **METHOD**: GET 
+- **BODY**: BLANK 
 
-- Consultar uma pessoa
-  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}***
-    
-    - Metodo: GET
-    
-    - Request Body: 
-        -Parametro Id passado na URL {pessoaId}
-    - Response Body:
-        - Entidade Pessoa recuperada do Banco. 
-    - Response Code:
-        - 200 (OK) para Sucesso.
-        - 404 (NOT FOUND) para Falha.
--Listar pessoas
-  - ***Endpoint: localhost:port/api/pessoas/***
-    
-    - Metodo: GET
-    
-    - Request Body: 
-        -Corpo Vazio (Irrelevante para o Metodo GET) 
-    - Response Body:
-        - Lista das entidades de Pessoas cadastradas com sucesso no banco até então.
-        - Lista Vazia caso o banco não tenha sido populado.
-    - Response Code:
-        - 200 (OK) para Sucesso.
-        - 400 (Bad Request) para Falha.
-- Criar endereço para pessoa
-  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}/enderecos***
-    
-    - Metodo: POST
-    
-    - Request Body: 
-        - Parametro Id de Pessoa passada na URL {pessoaId}
-        - logradouro: String (Não Nulo) 
-        - cep: String (Não Nulo / minimo de 8 caracteres e máximo de 9)  /**cep e numero juntos formam uma chave unica**/
-        - numero: String (máximo de 4 caracteres)  /**numero e cep juntos formam uma chave unica**/
-        - cidade: String (Não Nulo) 
-    - Response Body:
-        - Entidade Endereco cadastrada no Banco. /**por convenção da API todo primeiro endereço cadastrado para cada Pessoa, se torna seu endereço Principal(Podendo ser alterado posteriormente)
-  
-  
-    - Response Code:
-        - 201 (CREATED) para Sucesso.
-        - 400 (Bad Request) para Falha.
-- Listar endereços da pessoa
-  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}/enderecos***
-    
-    - Metodo: GET
-    
-    - Request Body: 
-        - Parametro Id de Pessoa passada na URL {pessoaId}
-    - Response Body:
-        - Lista de Enderecos  cadastrada em determinada Entidade Pessoa no Banco. 
-        - Lista Vazia caso o banco não tenha sido populado com endereços para essa pessoa. 
-    - Response Code:
-         - 200 (OK) para Sucesso.
-         - 404 (NOT FOUND) para Falha caso Pessoa não exista no banco.
-         - 400 (BAD REQUEST) para falha padrão.
-         
-         
-- Poder informar qual endereço é o principal da pessoa
-  - ***Endpoint: localhost:port/api/pessoas/{pessoaId}/enderecos/{enderecoId}***
-    
-    - Metodo: PATCH
-    
-    - Request Body: 
-        - Parametro Id de Pessoa passada na URL {pessoaId} 
-        - Parametro Id de Endereco para substituir antigo endereço principal na URL {enderecoId} 
-    - Response Body:
-        - Entidade Endereco que foi substituido como endereço principal de Pessoa. 
-    - Response Code:
-         - 200 (OK) para Sucesso.
-         - 404 (NOT FOUND) para Falha caso Pessoa ou Endereco não exista no banco.
-         - 400 (BAD REQUEST) para falha padrão.
+ 
+**Successful Response**:
+ 
+- **STATUS CODE**: 200
+- **BODY**:
+```json
+{
+   ...Pessoa // astributos da Pessoa que foi recuperada do banco de dados através do ID. 
+}
+```
+ 
+**Error Response**:
+ 
+- **STATUS CODE**: 404
+- **BODY**:
+```json
+{
+   Status code // 404 
+}
+```
+ 
+---
+## Listar Pessoas
+**Request**:
+ 
+- **URL**: localhost:port/api/pessoas
+- **METHOD**: GET
+- **BODY**: BLANK 
 
-### Uma Pessoa deve ter os seguintes campos:
-- Nome
-- Data de nascimento
-- Endereço:
-  - Logradouro
-  - CEP
-  - Número
-  - Cidade
+ 
+**Successful Response**:
+ 
+- **STATUS CODE**: 200
+- **BODY**:
+```json
+{
+   ...Lista {Pessoas} // Lista com todas as pessoas cadastradas até o momento no banco.
+}
+```
+ 
+**Error Response**:
+ 
+- **STATUS CODE**: 404
+- **BODY**:
+```json
+{
+   Status code //404 
+}
+```
+ 
+---
+## Criar Endereço para Pessoa
+**Request**:
+ 
+- **URL**: localhost:port/api/pessoas/{pessoaId}/enderecos
+- **METHOD**: POST
+- **BODY**:
+```json
+{
+    logradouro: String // Não nula 
+    cep: String // Não Nula, minimo de 8 e máximo de 9 carecteres 
+    numero: String // Máximo de 4 caracteres 
+    cidade: String // Não Nula 
+}
+```
+ 
+**Successful Response**:
+ 
+- **STATUS CODE**: 201
+- **BODY**:
+```json
+{
+   ...Endereco // atributos do endereço que foi criada.
+}
+```
+ 
+**Error Response**:
+ 
+- **STATUS CODE**: 400
+- **BODY**:
+```json
+{
+   "type": String // Tipo de excecção que foi lançada 
+    "title": String // Descrição do titulo de Erro
+    "status": int // 400 
+    "detail": String // Detalhes sobre o erro 
+    "instance": String // Linkando para onde o erro teria acontecido 
+}
+```
+ 
+---
+## Listar Pessoas
+**Request**:
+ 
+- **URL**: localhost:port/api/pessoas/{pessoaId}/enderecos
+- **METHOD**: GET
+- **BODY**: BLANK 
+
+ 
+**Successful Response**:
+ 
+- **STATUS CODE**: 200
+- **BODY**:
+```json
+{
+   ...Lista {Enderecos} // Lista com todas os endereços cadastradas até o momento no banco e que pertencem a pessoa informada.
+}
+```
+ 
+**Error Response**:
+ 
+- **STATUS CODE**: 404
+- **BODY**:
+```json
+{
+  Status code // 404
+}
+```
+---         
+         
+## Alterar Endereço 
+**Request**:
+ 
+- **URL**: localhost:port/api/pessoas/{pessoaId}/enderecos/{enderecoId} 
+- **METHOD**: PATCH 
+- **BODY**: BLANK 
+
+ 
+**Successful Response**:
+ 
+- **STATUS CODE**: 200
+- **BODY**:
+```json
+{
+   ...Endereco // Atributos do novo endereço principal.
+}
+```
+ 
+**Error Response**:
+ 
+- **STATUS CODE**: 400
+- **BODY**:
+```json
+{
+   "type": String // Tipo de excecção que foi lançada 
+    "title": String // Descrição do titulo de Erro
+    "status": int // 400 
+    "detail": String // Detalhes sobre o erro 
+    "instance": String // Linkando para onde o erro teria acontecido 
+}
+```
+
+---
 
 ## UML das Entidades no banco: 
 ![image](https://user-images.githubusercontent.com/77293081/211125118-47b8174e-2684-4eb1-b0be-b0e7106ca4e0.png)
@@ -183,6 +260,3 @@
   - Todos os testes se encontram na ordem pela qual cada END POINT aqui foi explicado. 
     
 
-### Requisitos
-- Todas as respostas da API devem ser JSON
-- Banco de dados H2
