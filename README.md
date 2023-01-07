@@ -113,6 +113,10 @@
   - Número
   - Cidade
 
+## UML das Entidades no banco: 
+![image](https://user-images.githubusercontent.com/77293081/211125118-47b8174e-2684-4eb1-b0be-b0e7106ca4e0.png)
+
+
 ### Requisitos
 - Todas as respostas da API devem ser JSON
 - Banco de dados H2
