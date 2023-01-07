@@ -1,5 +1,5 @@
 # CRUD Responsável por gerenciar Pessoas e Endereços.
-
+Desafio java utilizando Spring Boot e h2Database para criar uma aplicação que gerenciasse pessoas e endereços segue abaixo todas as funcionalidades implementadas e seus end points. 
 
 ## Desafio Java
 
@@ -248,6 +248,7 @@
 ## Informações sobre a aplicação: 
 - Utilizando o MAVEN para levantar e iniciar a aplicação : 
   - Utilizando o ".mvwn install", para instalar e e buildar a aplicação após isso, pode ser utilizado a linha "mvwn verify" para iniciar todos os testes de integração da aplicação.
+  - Utilizando o ".mvwn spring-boot:run" a aplicação ira ser levantada no port padrão. 
 - Utilizando alguma IDE para levantar e iniciar a aplicação :
   - Utilizando alguma IDE compativel com JAVA e Spring Boot pode se iniciar o JAR após o build da aplicação com Maven de forma mais direta e utilizando uma interface.
 - PORT e BANCO DE DADOS:
