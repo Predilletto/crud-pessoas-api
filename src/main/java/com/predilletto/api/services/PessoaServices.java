@@ -53,6 +53,7 @@ public class PessoaServices {
 		Pessoa pessoa= pessoaRepository.findById(pessoaId).get();
 		Endereco endereco= enderecoRepository.findById(enderecoId).get();
 		pessoa.setEnderecoPrincipal(endereco);
+		salvar(pessoa);
 		return ResponseEntity.ok(pessoa);
 		
 	}
